@@ -12,7 +12,7 @@ namespace Lab_.NET_1
 
         public static void CreateContact()
         {
-            Console.WriteLine("Создание нового контакта:");
+            Console.WriteLine("\nСоздание нового контакта:");
 
             Console.Write("Введите фамилию: ");
             string surname = Console.ReadLine();
@@ -47,7 +47,7 @@ namespace Lab_.NET_1
             Console.Write("Введите Отчество: ");
             string patronymic = Console.ReadLine();
 
-            Console.Write("Введите номер телефона: ");
+            Console.Write("Введите номер телефона (начиная с 8): ");
             string phoneNumber = Console.ReadLine();
             while (true)
             {
@@ -56,14 +56,14 @@ namespace Lab_.NET_1
                     Console.WriteLine("Обязательное для заполнения поле!");
                     phoneNumber = Console.ReadLine();
                 }
-                else if (Convert.ToInt64(phoneNumber) >= 8000000 && Convert.ToInt64(phoneNumber) < 9000000)
+                else if (Convert.ToInt64(phoneNumber) >= 80000000000 && Convert.ToInt64(phoneNumber) < 90000000000)
                 {
-                    Console.WriteLine("Введите телефонный номер!");
-                    phoneNumber = Console.ReadLine();
+                    break;
                 }
                 else
                 {
-                    break;
+                    Console.WriteLine("Введите телефонный номер, начиная с 8!");
+                    phoneNumber = Console.ReadLine();
                 }
             }
 
@@ -100,7 +100,7 @@ namespace Lab_.NET_1
 
         public static void EditContact()
         {
-            Console.Write("Введите id контакта: ");
+            Console.Write("\nВведите id контакта: ");
             string tempId = Console.ReadLine();
             int id;
             while (true)
@@ -160,7 +160,7 @@ namespace Lab_.NET_1
             Console.Write("Введите Отчество: ");
             string patronymic = Console.ReadLine();
 
-            Console.Write("Введите номер телефона: ");
+            Console.Write("Введите номер телефона (начиная с 8): ");
             string phoneNumber = Console.ReadLine();
             while (true)
             {
@@ -169,14 +169,14 @@ namespace Lab_.NET_1
                     Console.WriteLine("Обязательное для заполнения поле!");
                     phoneNumber = Console.ReadLine();
                 }
-                else if (Convert.ToInt32(phoneNumber) >= 8000000 && Convert.ToInt32(phoneNumber) < 9000000)
+                else if (Convert.ToInt32(phoneNumber) >= 80000000000 && Convert.ToInt32(phoneNumber) < 90000000000)
                 {
-                    Console.WriteLine("Введите телефонный номер!");
-                    phoneNumber = Console.ReadLine();
+                    break;
                 }
                 else
                 {
-                    break;
+                    Console.WriteLine("Введите телефонный номер, начиная с 8!");
+                    phoneNumber = Console.ReadLine();
                 }
             }
 
@@ -212,7 +212,7 @@ namespace Lab_.NET_1
 
         public static void WatchContact()
         {
-            Console.Write("Введите id контакта: ");
+            Console.Write("\nВведите id контакта: ");
             string tempId = Console.ReadLine();
             int id;
             while (true)
@@ -240,9 +240,19 @@ namespace Lab_.NET_1
             Console.WriteLine(contactsList[id]);
         }
 
+        public static void WatchAllContacts()
+        {
+            Console.WriteLine("\nСписок всех контактов:");
+            Dictionary<int, Contact>.KeyCollection contactsKeys = contactsList.Keys;
+            foreach(int key in contactsKeys)
+            {
+                Console.WriteLine(contactsList[key].ToStringShort());
+            }
+        }
+
         public static void DeleteContact()
         {
-            Console.Write("Введите id контакта: ");
+            Console.Write("\nВведите id контакта: ");
             string tempId = Console.ReadLine();
             int id;
             while (true)
@@ -298,7 +308,7 @@ namespace Lab_.NET_1
 
         public override string ToString()
         {
-            string result = "Информация о контакте:";
+            string result = "\nИнформация о контакте:";
             result += "\nid: " + Id;
             result += "\nФамилия: " + Surname;
             result += "\nИмя: " + Name;
@@ -324,6 +334,15 @@ namespace Lab_.NET_1
             {
                 result += "\nДополнительная информация: " + Notes;
             }
+            return result;
+        }
+
+        public string ToStringShort()
+        {
+            string result = "\nКонтакт с id: " + Id;
+            result += "\nФамилия: " + Surname;
+            result += "\nИмя: " + Name;
+            result += "\nТелефонный номер: " + PhoneNumber;
             return result;
         }
 
