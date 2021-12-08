@@ -1,0 +1,17 @@
+﻿<Window x:Class="Lab_.NET_2.Loading"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_.NET_2"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Подгрузка файла..." Height="290" Width="500">
+    <Grid>
+        <Grid Margin='242,36,241.333,158.667'>
+            <Label x:Name='PageInfo' Content="Выполняется загрузка:" FontSize="16" VerticalAlignment="Center"
+                           Foreground='Black' Margin="-241,-3,-240,30" Height="39" HorizontalContentAlignment ="Center"/>
+        </Grid>
+        <Button x:Name="Ok_Button" Content="ОК" Click="Ok_Button_Click"  Width="100" Height="30" HorizontalAlignment="Left" IsEnabled="False" Margin="198,201,0, 10"/>
+
+    </Grid>
+</Window>
